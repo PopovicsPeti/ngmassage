@@ -1,0 +1,19 @@
+
+    <div class="row overflow scrollbar-warning grig-box-left">
+        <div class="start"
+             [ngClass]="{'aside': aside == true}">
+                <app-product *ngFor="let product of productsArray; let i = index"
+                        [selectedProduct]="product"
+                        [productId]="i"
+                        (click)="onAside()">
+            </app-product>
+        </div>
+        <div [ngClass]="{'details': aside == true}"
+             class="hide">
+            <router-outlet></router-outlet>
+        </div>
+        
+    
+    </div>
+    
+    

@@ -1,0 +1,45 @@
+.about{
+    display: block;
+    width: 100%;
+    margin-top: 15vh;
+    background-image: url('/assets/svg/services-bg.png');
+    background-position: bottom left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: 1.5rem;
+    line-height: 2rem;
+
+    h1{
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &-worker{
+       
+        &-text{
+
+            h2, p{
+                margin-bottom: 2rem;
+            }
+
+            h2{
+                font-size: 2rem;
+                font-weight: 500;
+            }
+
+            h3{
+                font-size: 1.5rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .motivation{
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: justify;
+    }
+}

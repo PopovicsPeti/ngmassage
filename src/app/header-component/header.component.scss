@@ -1,0 +1,133 @@
+$main-color: #4b171a;
+$link-color: #ff864b;
+
+.fix{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: .5s ease-in-out;
+    z-index: 10; 
+}
+
+.info-panel{
+    background: #ff864b;
+    color: rgb(253, 253, 253);
+    display: flex;
+    padding: .3rem;
+    height: 3.5vh;
+    width: 100%;
+    font-size: 1.2rem;
+    
+
+    i{
+        padding: .5rem .5rem 0 .5rem;
+    }
+
+    p{
+        padding: .3rem;
+    }
+
+    @media (max-width: 600px){
+        display: none;
+    }
+}
+
+.navbar{
+    margin-left: auto;
+    background: #4b171a;
+
+    .mobile-infopanel{
+        color: $link-color;
+
+        &-phone, &-email{
+            display: flex;
+            place-content: center;
+
+            p{
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    @media (min-width: 600px){
+        .mobile-infopanel{
+            display: none;
+        }
+    }
+    
+    .text {
+        color: rgb(253, 253, 253);
+        font-size: 1.7rem;
+        cursor: pointer;
+        transition: .5s ease-in-out;
+        font-weight: 600;
+        margin-left: 1rem;
+    
+        &:hover{
+            color: #ff864b;
+        }
+    }
+}
+
+.navbar-scrolled{
+    margin-top: -3.4vh;
+    border-bottom: 1px solid $main-color;
+
+    .navbar{
+        background-color: rgb(253, 253, 253); 
+    }
+
+    ul{
+        background: rgb(253, 253, 253);
+    }
+
+    .text {
+        color: $main-color;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: .5s ease-in-out;
+        font-weight: 600;
+        padding: .5rem;
+        margin-left: 1rem;
+    }
+
+    .costumer{
+        padding: 1.2rem;
+        text-decoration: underline;
+        color: $main-color;
+        font-size: 1.2rem;
+    }
+    
+    
+}
+
+
+
+.active-nav{
+    color: #ff864b;
+}
+
+.costumer{
+    padding: 1.5rem;
+    text-decoration: underline;
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-left: 1rem;
+
+    &:hover{
+        color: white;
+    }
+}
+
+.close{
+    padding: .5rem 2rem;
+    margin: .3rem;
+}
+
+.costumer-box{
+    @media(min-width: 768px){
+        display: none;
+    }
+}

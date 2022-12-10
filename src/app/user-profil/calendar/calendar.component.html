@@ -1,0 +1,50 @@
+<div class="container">
+      <h2 class="text-center">Foglalások: </h2>
+            <h2 *ngIf="bookingCheck"
+                class="text-center">
+                  Még nem volt foglalásod.
+            </h2>
+            <div class="row">
+
+
+                  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+      
+                      <!--- Note that these columns can be defined in any order.
+                            The actual rendered columns are set as a property on the row definition" -->
+                    
+                      <!-- Position Column -->
+                      <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Fsz. </th>
+                        <td mat-cell *matCellDef="let booking let i = index"
+                            [style.background]="booking.color"> {{i+1}} </td>
+                      </ng-container>
+                    
+                      <!-- Name Column -->
+                      <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef> Dátum </th>
+                        <td mat-cell *matCellDef="let booking"
+                            [style.background]="booking.color"> {{booking.date}} </td>
+                      </ng-container>
+                    
+                      <!-- Weight Column -->
+                      <ng-container matColumnDef="service">
+                        <th mat-header-cell *matHeaderCellDef> Szolgáltatás </th>
+                        <td mat-cell *matCellDef="let booking"
+                            [style.background]="booking.color"> {{booking.service}} </td>
+                      </ng-container>
+                    
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="complite">
+                        <th mat-header-cell *matHeaderCellDef> Állapot </th>
+      
+                        <td mat-cell *matCellDef="let booking"
+                            [style.background]="booking.color"> {{ booking.complite }} </td>
+      
+                      </ng-container>
+                    
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+            </div>
+
+</div>

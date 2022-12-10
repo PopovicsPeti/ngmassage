@@ -1,0 +1,282 @@
+
+.popup{
+    position: fixed;
+    top: 5vh;
+    left: 5vw;
+    height: 90vh;
+    width: 90vw;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: none;
+    // border: 10px solid #e95a13;
+    border-radius: 10px;
+
+    &::-webkit-scrollbar {
+    width: 5px;
+    height: 90%;
+    }
+
+  /* Track */
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    }
+
+  /* Handle */
+    &::-webkit-scrollbar-thumb {
+    background: #ff864b;
+    border-radius: 20px;
+    }
+}
+
+.headline{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.client{
+
+    &-box{
+        display: block;
+        position: relative;
+        padding: 0;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 120;
+        background: rgba(255, 255, 255, 0.95);
+        box-sizing: 0 3px 3px rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+
+        &-head{
+            //position: fixed;
+            // top: 5vh;
+            // left: 4.4vw;
+            width: 92vw;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: #e95a13;
+            border-radius: 10px 10px 0 0;
+            z-index: 10;
+
+            &-action{
+                text-align: right;
+            }
+
+            &-name, &-action{
+                display: block;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: white;
+                padding-top: .5rem;
+                @media(max-width: 768px){
+                    text-align: center;
+                }
+            }
+
+
+        }
+    }
+
+
+
+    &-info{
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+
+        &-text{
+            display: grid;
+            width: 100%;
+            @media(min-width: 1000px){
+                grid-template-columns: auto auto;
+            }
+            @media(min-width: 1300px){
+                grid-template-columns: auto auto auto auto;
+            }
+
+            span{
+                text-decoration: underline;
+                font-weight: bold;
+
+            }
+
+            div{
+                width: 100%;
+            }
+        }
+    }
+
+    &-table{
+        font-size: 1.5rem;
+    }
+
+    &-booking{
+        width: 100%;
+        padding: 1rem;
+
+        &-grid{
+            display: grid;
+            grid-template-columns: auto;
+            @media(min-width: 1000px){
+                grid-template-columns: 50% 50%;
+            }
+
+            &-left{
+                padding: .5rem;
+
+                ol{
+                    margin-top: 2rem;
+
+                    li{
+                        opacity: .6;
+                        transition: .5s ease-in-out;
+                        display: grid;
+                        grid-template-columns: 90% 10%;
+
+
+                        &:hover{
+                            opacity: 1;
+                        }
+                        a{
+                            display: block;
+                            cursor: pointer;
+                            padding: .4rem;
+                            font-size: 1.2rem;
+
+
+                        }
+
+                        // button{
+                        //     font-size: 2rem;
+                        //     opacity: .5;
+                        //     background: transparent;
+                        //     border: 0;
+                        //     transition: .5s ease-in-out;
+                        // }
+                        // button:hover{
+                        //     opacity: 1;
+                        // }
+                    }
+                }
+            }
+
+            &-right{
+                padding: 1rem;
+
+                p{
+                    margin: auto;
+                }
+
+                &-btn{
+                    display: flex;
+                    justify-content: center;
+
+                }
+
+            }
+
+        }
+    }
+
+    &-medrecord{
+        display: block;
+        width: 100%;
+        padding: 1rem;
+
+        &-header{
+
+            p, button{
+                display: inline-block;
+                margin: auto;
+            }
+
+        }
+
+        &-form{
+            font-size: 1.2rem;
+            width: 100%;
+
+            &-header{
+                display: grid;
+                grid-template-columns: auto;
+                margin: auto;
+                @media(min-width: 1000px){
+                    grid-template-columns: 50% 50%;
+                }
+            }
+
+        }
+
+        &-btn{
+            align-items: center;
+        }
+
+        &-grid{
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+            &-card{
+                margin: 1rem;
+                font-size: 1.2rem;
+                border-radius: 10px;
+                display: grid;
+                grid-template-columns: 90% 10%;
+
+                a{
+                    display: block;
+                    width: 100%;
+                    text-decoration: none;
+                    color: black;
+                    cursor: pointer;
+                    border: 0;
+                }
+
+                button{
+                    font-size: 2rem;
+                    color: red;
+                    opacity: .5;
+                    background: transparent;
+                    border: 0;
+                    transition: .5s ease-in-out;
+
+                }
+                button:hover{
+                    opacity: 1;
+                }
+
+                &-body{
+                    padding: 1rem;
+
+                    h2{
+                        font-weight: bold;
+                    }
+
+                    h3{
+                        font-weight: bold;
+                        text-decoration: underline;
+                        font-size: 1rem;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+
+
+
+.close{
+    display: block;
+    position: absolute;
+    right: 1rem;
+    width: 3.2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}

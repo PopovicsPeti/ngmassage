@@ -1,0 +1,89 @@
+.row{
+    text-align: left;
+}
+
+h1{
+    font-size: 3rem;
+    line-height: 3.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @media(max-width: 768px){
+        padding-top: 20%;
+    }
+}
+
+.eu-form{
+    font-size: 1.5rem;
+
+    &-personaldata{
+
+
+        label, input{
+            margin-bottom: 1rem;
+        }
+
+        input{
+            margin-bottom: 2rem;
+        }
+    }
+
+    &-illnesssection{
+        text-decoration: underline;
+        margin-bottom: 2rem;
+        line-height: 2rem;
+        font-weight: 500;
+        display: block;
+
+
+
+        &-table{
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 3% 97%;
+
+            .td{
+                vertical-align: middle;
+            }
+        }
+        
+
+    }
+
+    &-contract{
+        h2{
+            font-size: 1.7rem;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+        label, textarea, ul, li, h2{
+            margin-bottom: 2rem;
+            line-height: 2rem;
+        }
+    }
+
+    &-end{
+        label, input, h2{
+            margin-bottom: 2rem;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        button{
+            display: block;
+            margin: auto;
+            padding: 1rem 2rem;
+    
+        }
+    }
+}
+
+.mobile{
+    @media(max-width: 768px){
+        width: 90%;
+        margin: auto;
+    }
+}

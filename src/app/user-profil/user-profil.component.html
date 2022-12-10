@@ -1,0 +1,106 @@
+<ng-template appPlaceholder></ng-template>
+
+<div *ngIf="curentUser.email != 'p.popovics92@gmail.com'" class="profil">
+
+    
+    
+        <div class="profil-left">
+
+            <h2> Felhasználó neve </h2>
+            <h2> {{ curentUser.name }} </h2>
+
+            <div class="profil-left-menu">
+                <ul>
+                    <li>
+                        <a routerLink="calendar"
+                           routerLinkActive="active" > Foglalások </a>
+                    </li>
+                    <li>
+                        <a routerLink="medsheet"
+                           routerLinkActive="active"> Eü nyilatkozat </a>
+                    </li>
+                    <li>
+                        <a routerLink="medrecord"
+                           routerLinkActive="active"> Kórlap </a>
+                    </li>
+                </ul> 
+            </div>
+        
+            
+            <div class="profil-left-badge" *ngIf="!regularCostumer">
+                <img src="/assets/costumer-badge-inactive.png" alt="Nem megszerzett törzsvásárlói engedmény." title="Nem megszerzett törzsvásárlói engedmény.">
+            </div>
+
+            <div class="profil-left-badge" *ngIf="regularCostumer">
+                <img src="/assets/costumer-badge-active.png" alt="Törzsvásárlói 10% kedvezmény" title="Aktív törzsvásárlói 10% kedvezmény">
+            </div>
+
+            
+            <div class="profil-left-btn">
+                <button class="btn btn-warning"
+                        (click)="onLogout()"
+                >Kilépés</button>
+            </div>  
+            
+            
+        </div>
+        <div class="profil-right text-center">
+            <router-outlet></router-outlet>
+        </div>
+          
+    
+</div>
+
+<div *ngIf="curentUser.email === 'p.popovics92@gmail.com'" 
+     class="profil">
+    
+    <div class="profil-left">
+
+        <h2>Adminisztrátori felület</h2>
+
+            <div class="profil-left-btn">
+                <button class="btn btn-danger"
+                (click)="onLogout()"
+                >Kilépés</button>
+            </div>         
+            <!-- (click)="onAdminSave()" -->
+    </div>
+
+
+
+    <div class="profil-admin text-center mt-3">
+
+
+         <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+            <strong>Valamilyen hiba történt -></strong> {{ errorMessage }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="errorMessage = ''"></button>
+          </div>
+
+        <h2>Vendéglista: </h2>
+
+        
+        <section class="profil-admin-client-container">
+
+                <div class="client-box text-center" 
+                    *ngFor="let client of clientsArray; let i = index"
+                    >
+            
+                <div class="client-box-name">
+                    <p> {{ client.name }} </p>
+                </div>
+                <div class="col-12 client-box-data my-2">
+                    <p> {{ client.email }} </p>
+                    <p> {{ client.bornDate }} </p>
+                </div>
+                    <button class="btn btn-success mb-3"
+                                (click)="showClient(i)">
+                        Vendég megtekintése
+                    </button>
+                </div>
+        </section>
+
+    </div>
+      
+
+</div>
+

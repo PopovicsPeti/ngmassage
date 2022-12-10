@@ -1,0 +1,54 @@
+<div class="row user-cover" >
+
+    <div class="alert alert-danger alert-dismissible fade show my-5" role="alert" *ngIf="errorMessage != ''">
+        <strong> ! </strong> {{ errorMessage }}
+        <button type="button" 
+                class="btn-close" 
+                data-bs-dismiss="alert" 
+                aria-label="Close" 
+                (click)="errorMessage = ''">
+        </button>
+    </div>
+    
+    <div class="col-12 user-cover-appointment">
+        <h2 class="user-cover-appointment-text">
+            Következő foglalásod: 
+        </h2> 
+        <h2 class="user-cover-appointment-status ms-3">
+             {{ nextBooking }}
+        </h2>
+    </div>
+
+    <div class="col-12 user-cover-costumer">
+        <h2 class="user-cover-costumer-text">
+            Törzsvásárlói státusz: 
+        </h2> 
+        <h2 class="user-cover-costumer-status ms-3">
+            {{ regularCostumer? 'AKTÍV' : 'INAKTÍV' }}
+        </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="alert alert-danger" role="alert">
+            <div class="profil-left-btn my-3">
+                <div class="col-12 text-center">
+                    <h2 class="my-2"><strong>Profil törlése</strong></h2>
+                </div>
+                <div class=" text-center">
+                    <button
+                        class="btn btn-info mb-2"
+                        (click)="delete = !delete">
+                        {{ !delete ? 'Beleegyezem a profilom törlésébe' : 'Mégse' }}
+                    </button>
+                </div>
+                        <button class="btn btn-danger"
+                            (click)="onCostumerDelete()"
+                            [disabled]="!delete"
+                            >Profil törlése
+                        </button>
+            </div>
+          </div>
+        
+    </div>
+</div>

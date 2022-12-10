@@ -1,0 +1,32 @@
+
+h2{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    @media(max-width: 768px){
+      padding-top: 20%; 
+    }
+}
+
+.med-card{
+    width: 98%;
+    margin: 1rem auto 1rem auto;
+  @media(min-width: 768px){
+    width: 100%;
+  }
+
+  &-title{
+    font-size: 2rem;
+    }
+
+    &-subtitle{
+        font-size: 1.7rem;
+        opacity: .9;
+    }
+
+    h5, h6, p{
+        margin-bottom: 2rem;
+        line-height: 1.9rem;
+    }
+}
+

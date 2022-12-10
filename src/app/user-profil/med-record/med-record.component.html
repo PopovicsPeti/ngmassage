@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-12">
+        <h2> Észrevételek és javaslatok</h2>
+
+        <div class="row" *ngIf="arrayCheck">
+            <h2 class="text-center">
+                Még nem kaptál üzenetet a szalonból.
+            </h2>
+        </div>
+
+        <div class="row" *ngIf="!arrayCheck">
+            <div class="card med-card col-12"
+             *ngFor="let m of medRecorsdArray">
+                <div class="card-body">
+                    <h5 class="med-card-title"> {{ m.observation }} </h5>
+                    <h6 class="med-card-subtitle"> {{ m.date }} </h6>
+                    <p class="card-text"> {{ m.recomendation }} </p>
+                </div>
+        </div>
+        </div>
+
+
+    </div>
+</div>

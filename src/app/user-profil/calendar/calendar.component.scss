@@ -1,0 +1,12 @@
+
+table {
+    width: 100%;
+    text-align: left;
+  }
+
+  h2{
+    font-size: 2rem;
+    @media(max-width: 768px){
+      padding-top: 20%; 
+    }
+  }

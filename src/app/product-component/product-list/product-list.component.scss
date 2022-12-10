@@ -1,0 +1,97 @@
+.overflow{
+    margin: 0;
+    width: 100vw;
+    background-image: url('/assets/svg/services-bg.png');
+    background-position:bottom left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+.start{
+    width: 60vw;
+    margin: 15vh auto;
+    transition: .5s ease-in-out;
+
+}
+
+.hide{ 
+    display: none;
+}
+
+@media (max-width: 1024px){
+    .aside{
+        margin: 0;
+        display: flex;
+        width: 100vw;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            height: 10px;
+
+            }
+          
+          /* Track */
+            &::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0);
+                border-radius: 20px;
+            }
+           
+          /* Handle */
+                &::-webkit-scrollbar-thumb {
+                background: #ff864b; 
+                border-radius: 20px;
+            }
+    }
+}
+
+@media (min-width: 1024px){
+    .aside{
+        margin: 0;
+        margin-left: 0;
+        padding-top: 10vh;
+        width: 400px;
+        height: 85vh;
+    
+        overflow-y: scroll;
+        scrollbar-width: 4px;
+        scrollbar-color: rgb(166, 163, 163);
+        overflow-x: hidden;
+    
+        &::-webkit-scrollbar {
+            width: 5px;
+            height: 90%;
+            }
+          
+          /* Track */
+            &::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0);
+            border-radius: 20px;
+            }
+           
+          /* Handle */
+            &::-webkit-scrollbar-thumb {
+            background: #ff864b; 
+            border-radius: 20px;
+            }
+        
+    }
+}
+
+
+
+.details{
+    display: block!important;
+    width: 60vw;
+    animation-name: comeIn;
+    animation-duration: 1s;
+
+    @keyframes comeIn {
+        from {transform: translateX(40vw);}
+        to {transform: translateX(0);}
+        
+    }   
+
+    
+}
+
+

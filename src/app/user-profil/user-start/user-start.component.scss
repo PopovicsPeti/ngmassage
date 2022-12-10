@@ -1,0 +1,31 @@
+h1{
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10vh;
+}
+
+h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 5vh;
+}
+
+.user-cover{
+    display: flex;
+    padding-top: 20%;
+
+    &-appointment, &-costumer{
+        display: block;
+
+        &-text{
+            text-decoration: underline;
+            display: inline-block;
+        }
+
+        &-status{
+            display: inline-block;
+            font-weight: bolder;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+
+
+<a 
+    [routerLink]="[productId]"
+    
+    
+    >
+
+    <div class="row bg">
+        <div class="products"
+             routerLinkActive="active">
+            <img [src]="product.img" 
+                 [alt]="product.name">
+            <h2>{{ product.name }}</h2>
+        </div>
+    </div>
+</a>
+

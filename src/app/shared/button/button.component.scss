@@ -1,0 +1,37 @@
+$main-color: #4b171a;
+$light-color: #fefefe;
+
+
+
+.btn-container{
+    display: flex;
+    place-content: center;
+
+    .btn{
+        display: flex;
+        color: transparent;
+        margin: 1.5rem;
+        border: 3px solid $main-color;
+        border-radius: 10px;
+        background: transparent;
+        transition: .5s ease-in-out;
+
+        &:hover{
+            transform: scale(1.1);
+            background-color: $main-color;
+            color: $light-color;
+        }
+
+        a{
+            padding: 1rem 2rem;
+            color: $main-color;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover{
+                color: $light-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,138 @@
+<div class="row">
+    <div class="col-12 mobile">
+        <h1>Egészségügyi nyilatkozat</h1>
+        <!-- [formGroup]="clientForm" -->
+        <form class="form-group eu-form"     
+                (ngSubmit)="onSubmit()"
+                >
+            <div class="eu-form-personaldata">
+                <label class="form-label" for="name">Név: </label>
+                <input class="form-control" 
+                       type="text" 
+                       id="name" 
+                       name="name" 
+                       [(ngModel)]="curentUser.name">
+                       <!-- [value]="curentUser.name" -->
+                       <!-- FormControlName="name" -->
+                       
+                <label class="form-label" for="bornDate">Születési idő: </label>
+                <input class="form-control" 
+                       type="date" 
+                       id="bornDate"  
+                       name="bornDate"
+                       [(ngModel)]="curentUser.bornDate">  
+                       <!-- [value]="curentUser.bornDate" -->
+                       <!-- FormControlName="bornDate" -->
+                     
+
+                <label class="form-label" for="adress">Lakcím: </label>
+                <input class="form-control" 
+                       type="text" 
+                       id="adress" 
+                       name="adress" 
+                       [(ngModel)]="curentUser.adress">
+                       <!-- [value]="curentUser.adress" -->
+                       <!-- FormControlName="adress" -->
+                        
+
+                <label class="form-label" for="email">E-mail cím: </label>
+                <input class="form-control" 
+                       type="email" 
+                       id="email" 
+                       name="email" 
+                       readonly
+                       [(ngModel)]="curentUser.email">
+                       <!-- FormControlName="email" -->
+                        <!-- [value]="curentUser.email" -->
+                       
+            </div>
+
+            <p class="eu-form-illnesssection"> 
+                Kérem jelölje be azokat a problémákat <i>(amennyiben van ilyen)</i> amelyeknek a gyanúja fennáll, ezzel segítve a munkámat. </p>
+
+                <table class="table illness-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Egészségügyi probléma megnevezése</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <!-- formGroupName="problems" -->
+                    
+                        
+                         <tr *ngFor="let p of curentUser.problems">
+                            <th scope="row">
+                                <input type="checkbox"
+                                       class="form-check-input" 
+                                       [value]="p.id"
+                                       [name]="p.name"
+                                       [(ngModel)]="p.select"
+                                       >
+                                    </th>
+                                    <td class="align-middle"> {{ p.name }} </td>
+                                <!-- (change)="onChangeProblems($event)" -->  
+                                </tr> 
+                        
+                     
+                    </tbody>
+                </table>                    
+                
+            <div class="eu-form-contract">
+                <label class="form-label" for="otherProblems">Egyéb közlendő egészségügyi problémák: </label>
+                <textarea class="form-control" 
+                          name="otherProblems" 
+                          id="otherProblems"
+                          [(ngModel)]="curentUser.otherProblems"
+                          cols="30" 
+                          rows="10">
+                          
+                        </textarea>
+                            <!-- FormControlName="otherProblems" -->
+                            <!-- [value]="curentUser.otherProblems" -->
+
+                
+                <h2>Fenti betegségek esetén a masszázsainkat nem, vagy csak fokozott elővigyázatossággal ajánlom!</h2>
+    
+                <h2>Továbbá a menstruáció első 3 napján, illetve várandós vagy szoptatós anyáknak nem ajánlott a törzset érintő masszázsokat igénybe venni!</h2>
+    
+               <h2> A fent említetteket tudomásul veszem!</h2>
+    
+               <ul>
+                <li>
+                    Az általam közölt adatok a valóságnak megfelelnek és aláírásommal igazolom, hogy saját felelősségem teljes tudatában veszem igénybe a kezeléseket, melyekről teljes körű tájékoztatást kaptam és ezen ismeretek birtokában élek velük.
+                </li>
+                <li>
+                    Jelen egészségügyi nyilatkozat aláírásával az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény 5. § (1) bekezdés b)   pontja es a (2) bekezdés a) pontja alapján úgy nyilatkozom, hogy hozzájárulok az egészségügyi nyilatkozatomban megadott adataimra vonatkozóan azok kezeléséhez és megismeréséhez a szolgáltató részére a hatályos jogszabályok alapján.
+                </li>
+                <li>
+                    Adatkezelés helye: 1037 Budapest, Bokor utca 6. számú földszinti bérlemény.
+                    Adatkezelés időtartama: az adatok kezeléséhez adott hozzájárulás visszavonásáig.
+                    Tudomásul vettem, hogy jogomban áll kérelmezni az adatkezelőtől a személyes és különleges adataimhoz való hozzáférést, valamint azok helyesbítését, törlését, kezelésüknek korlátozását, hozzájárulásom időbeni határ nélküli visszavonását, illetőleg panasszal fordulni a Nemzeti Adatvédelmi és Információszabadság Hatósághoz.
+                </li>
+               </ul>
+            </div>
+
+            <div class="eu-form-end">
+
+                <label class="form-label" for="kelt">Budapest, </label>
+                <input class="form-control" 
+                       type="date" 
+                       id="date" 
+                       name="date" 
+                       readonly
+                       [(ngModel)]="curentUser.date">
+                       <!-- FormControlName="date" -->
+                       <!-- [value]="contractDate" -->
+
+                <h2>A következő gomb megnyomásával hozzájárul az adatok tárolásához:</h2>
+
+                <button class="btn btn-success"
+                        type="submit"
+                        > Beleegyezem az adataim tárolásába. 
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

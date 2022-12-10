@@ -1,0 +1,241 @@
+<main class="container client">
+    <section class="row popup">
+        
+        <div class="client-box">
+            <div class="client-box-head row">
+                <div class="client-box-head-name col-12 col-md-7">
+                    <p> {{ visitedClient.name }} </p>
+                </div>
+                <div class="client-box-head-action col-12 col-md-5">
+                    <div class="client-box-head-action-btn ">
+                        <button class="btn btn-success me-2"
+                            (click)="onSave()">
+                            Mentés
+                    </button>
+
+                    <button 
+                        class="btn btn-danger"
+                        (click)="onClose()"
+                        >X
+                    </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="client-info">
+                <p class="text-center display-6 my-3">Számlázási adatok</p>
+                <div class="client-info-text p-2 text-center">
+                    <div class=" ">   
+                        <p><span>Születési idő:</span> {{ visitedClient.bornDate }}</p>  
+                    </div>
+                    <div class=" ">   
+                        <p><span>Lakcím:</span> {{ visitedClient.adress }}</p>    
+                    </div>
+                    <div class=" ">
+                        <p><span>Email:</span> {{ visitedClient.email }}</p>
+                    </div>
+                    <div class=" ">
+                        <p> <span>EÜ nyilatkozat kelte:</span> {{ visitedClient.date }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table my-3 client-table">
+                <thead>
+                    <th class="text-center">
+                        Egészségügyi problémák
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sor of visitedClient.problems"
+                        class="text-center my-3 col-6">
+                        <td *ngIf="sor.select == true">
+                            {{ sor.name }} 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <section class="client-booking row">
+                <p class="text-center my-2 headline col-12">Foglalások:</p>
+                <div class="client-booking-grid">
+
+                    <div class="client-booking-grid-left"
+                         *ngIf="!visitedClient.booking">
+                        <h2 class="text-center"> Még nem történt foglalás.</h2>
+                    </div> <!-- grid left vége -->
+
+                    <div class="client-booking-grid-left"
+                         *ngIf="visitedClient.booking">
+                        <ol>
+                            <li *ngFor="let row of bookingArray; let i = index"
+                                [style.background]="row.color">
+                                <a (click)="onLoadBookingData(i)">
+                                    {{ row.date }} - {{ row.service }} - {{ row.complite }}
+                                </a>
+                                <button class="btn btn-danger"
+                                    type="button" 
+                                    (click)="onDeletAdvice(i)">
+                                X
+                            </button>
+                            </li>
+                        </ol>
+                    </div> <!-- grid left vége -->
+
+                    <div class="client-booking-grid-right">
+                        <p class="text-center col-6 my-3"><strong>Foglalások Kezelése</strong></p>
+        
+                        <label class="form-label" for="date">
+                            Dátum
+                        </label>
+                        <input type="date" 
+                            class="form-control mb-2"
+                            name="date"
+                            id="date"
+                            [value]="newBooking.date"
+                            [(ngModel)]="newBooking.date"
+                            >
+        
+                            <label class="form-label" for="service">
+                                szolgáltatás
+                            </label>
+                        <select type="select" 
+                            class="form-control mb-2"
+                            name="service"
+                            id="service"
+                            [(ngModel)]="newBooking.service"
+                            >
+                            <option value="Svédmasszázs">Svédmasszázs</option>
+                            <option value="Aromaterápia">Aromaterápia</option>
+                            <option value="Mézesmasszázs">Mézesmasszázs</option>
+                            <option value="Cellulitmasszázs">Cellulit masszázs</option>
+                            <option value="Hammam">Hammam</option>
+                            
+                        </select>
+                                
+        
+                            <label class="form-label" for="complite">
+                                státusz
+                            </label>
+                        <select type="date" 
+                            class="form-control mb-2"
+                            name="complite"
+                            id="complite"
+                            [(ngModel)]="newBooking.complite"
+                            >
+                            <option value="Teljesült"> Teljesült </option>
+                            <option value="Lefoglalva"> Lefoglalva </option>
+                            <option value="Lemondva"> Lemondva </option>
+        
+                        </select>
+
+                        <div class="client-booking-grid-right-btn my-3 text-center">
+                            <button *ngIf="!bookingSettingsMode" 
+                                class="btn btn-success mx-3"
+                                (click)="onNewBooking()">
+                                    Foglalás felvétele
+                            </button>
+                            <button *ngIf="bookingSettingsMode"
+                                class="btn btn-success mx-3"
+                                (click)="onChangeBooking()">
+                                    Foglalás módosítása
+                            </button>
+                            <button class="btn btn-warning mx-3"
+                                [disabled]="!bookingSettingsMode"
+                                (click)="onCancelBooking()">
+                                     Mégse
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div> <!-- grid vége -->
+            </section>
+
+            <section class="client-medrecord">
+                <div class="client-medrecord-header text-center">
+                    <h2 class="text-center my-2 headline"> Megjegyzések </h2>
+                <div class="client-medrecord-form">
+                    <div class="client-medrecord-form-header my-2">
+
+                        <label for="observation" 
+                                class="form-label ">
+                                Észrevétel
+                        </label>
+                        <label for="Mdate" 
+                                class="form-label ">
+                                Dátum
+                                </label>
+                                
+                        <input type="text" 
+                                class="form-control"
+                                name="observation" 
+                                id="observation"
+                                [(ngModel)]="newMedrecord.observation">
+
+                        <input type="date" 
+                                class="form-control" 
+                                name="Mdate" 
+                                id="Mdate"
+                                [(ngModel)]="newMedrecord.date">
+
+                    </div>
+                    <div class="client-medrecord-form-text">
+                        <label for="recomendation"
+                                class="form-label">
+                            Megjegyzés
+                        </label>
+                        <textarea name="recomendation"
+                                    class="form-control" 
+                                    id="recomendation"
+                                    [(ngModel)]="newMedrecord.recomendation">
+                        </textarea>
+
+                    </div>
+                </div>
+                <div class="client-medrecord-btn my-3">
+                    <button *ngIf="!medRecordSettingsMode"
+                        class="btn btn-success mx-3"
+                        (click)="onNewAdvice()">
+                            Új megjegyzés
+                    </button>
+                    <button *ngIf="medRecordSettingsMode"
+                            class="btn btn-success mx-3"
+                            (click)="onChangeAdvice()">
+                        Megjegyzés módosítása
+                    </button>
+                    <button class="btn btn-warning mx-3"
+                            [disabled]="!medRecordSettingsMode"
+                            (click)="onCancelAdvice()">
+                        Mégse
+                    </button>
+                </div>
+                </div>
+                <div class="client-medrecord-grid">
+                        <div class="card client-medrecord-grid-card"
+                             *ngFor="let m of visitedClient.medRecords; let i = index">
+                            <a  (click)="onLoadMedRecordData(i)"
+                                class="card client-medrecord-grid-card-body">
+                                <h2 class=""> {{ m.observation }} </h2>
+                                <h3 class=""> {{ m.date }} </h3>
+                                <p class=""> {{ m.recomendation }} </p>
+                            </a>
+                            <button class=""
+                                    type="button" 
+                                    (click)="onDeletAdvice(i)">
+                                X
+                            </button>
+                        </div>
+                    </div>
+
+            </section>
+            <div class="row">
+                <div class="col-12 text-center my-3">
+                    <button type="button" class="btn btn-danger" (click)="onDelete()">
+                        Vendég törlése
+                    </button>
+                </div>
+            </div>
+
+        </div><!-- popup záróteg -->
+    </section>
+</main>

@@ -1,0 +1,46 @@
+<div class="row">
+
+    <div class="description">
+        <h2> {{ productDescription.name }} </h2>
+        <div class="inline">
+            <p class="topic"> Időtartam:</p>
+            <p *ngIf="productDescription.durationMin == 0">
+                <b> Egyéb kezelések időtartamába épül be.</b></p>
+
+            <p *ngIf="productDescription.durationMin != 0">
+                <b> {{ productDescription.durationMin }}</b></p>
+                <p *ngIf="productDescription.durationMed">, </p>
+
+            <p *ngIf="productDescription.durationMed">
+               <b> {{ productDescription.durationMed }}</b>,  
+            </p> 
+            <p *ngIf="productDescription.durationMax">
+                <b> {{ productDescription.durationMax }}</b> 
+            </p>
+            <p *ngIf="productDescription.durationMin != 0"> perc </p>
+        </div>            
+        <div class="inline">
+            <p class="topic"> Kezelés Ára:</p>
+            <p *ngIf="productDescription.priceMin == 0">
+                <b> Más kezelések részeként igényelhető.</b></p>
+
+            <p *ngIf="productDescription.priceMin != 0">
+                <b> {{ productDescription.priceMin }}</b></p>
+            <p *ngIf="productDescription.priceMed">, </p>
+            
+            <p *ngIf="productDescription.priceMed">
+                <b> {{ productDescription.priceMed }}</b>,  
+            </p> 
+            <p *ngIf="productDescription.priceMax">
+                <b> {{ productDescription.priceMax }}</b> 
+            </p>
+            <p *ngIf="productDescription.priceMin != 0"> Huf </p>
+        </div> 
+        <p> {{ productDescription.description }} </p>
+        <h2>Legfontosabb gyakorlati haszna: </h2>
+        <ul>
+            <li> <b>{{ productDescription.profit }}</b> </li>
+        </ul>
+    </div>
+
+</div>

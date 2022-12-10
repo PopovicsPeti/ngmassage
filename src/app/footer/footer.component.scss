@@ -1,0 +1,108 @@
+$darc-color: #262626;
+$secondary-color: #edBf88;
+$light-color: #fefefe;
+
+.footer{
+    background: $darc-color;
+    width: 100vw;
+    z-index: 1;
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    &-logo{
+        width: 150px;
+        height: 150px;
+        margin: auto;
+    }
+
+    &-text{
+        text-align: center;
+        display: grid;
+        padding-bottom: 1rem;
+
+        a{
+            color: $secondary-color;
+            cursor: pointer;
+            text-decoration: none;
+            transition: .5s ease-in-out;
+
+            &:hover{
+                color: $light-color;
+            }
+        }
+    }
+
+    @media (min-width: 760){
+        &-pay{
+            width: 20vw;
+        }
+    }
+    
+
+    &-pay{
+        width: 60vw;
+        margin: auto;
+        padding-bottom: 1rem;
+
+        img{
+            width: 100%;
+        }
+
+       
+    }
+}
+
+@media (min-width: 760px){
+    .footer{
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        &-text{
+            padding-top: 8rem;
+            margin: auto;
+        }
+    
+        &-pay{
+            margin-top: -2rem;
+            width: 40vw;
+        }
+    }
+}
+
+@media (min-width: 1024px){
+    .footer{
+        display: grid;
+        grid-template-columns: 25% 25% 50%;
+
+
+        &-logo{
+            width: 150px;
+            height: 150px;
+            margin: auto;
+        }
+    
+        &-text{
+            text-align: center;
+            display: grid;
+            margin: auto;
+            padding-top: 2rem;
+    
+            a{
+                padding-bottom: 2rem;
+            }
+        }
+    
+        &-pay{
+            width: 30vw;
+            margin: auto;
+            padding-bottom: 2rem;
+            padding-top: 2rem;
+    
+            img{
+                width: 100%;
+            }
+        }
+    }
+}

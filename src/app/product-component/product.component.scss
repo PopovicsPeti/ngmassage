@@ -1,0 +1,41 @@
+$link-color: #ff864b;
+$text-color: #343557;
+
+.bg{
+    text-align: center;
+}
+
+a{
+    color: $text-color;
+    text-decoration: none;
+
+    .products{
+        margin: 3rem 0;
+        opacity: .6;
+        transition: .5s ease-in-out;
+        
+        &:hover{
+            color: $link-color;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        img{
+            height: 25vh; 
+            cursor: pointer;
+            margin-bottom: 1.5rem;              
+        }
+    }
+}
+
+.active{
+    color: $link-color;
+    transform: scale(1.1);
+    opacity: 1!important;
+}
+
+
+
+
+
+

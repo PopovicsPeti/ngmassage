@@ -1,0 +1,24 @@
+.login{
+    height: 90vh;
+    place-content: center;
+    align-items: center;
+
+    &-box{
+
+        h1{
+            text-align: center;
+            font-weight: 600;
+        }
+        width: 50%;
+        margin: 30vh auto;
+        font-size: 1.2rem;
+
+        &-btns{
+            text-align: center;
+
+            button{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
