@@ -1,0 +1,25 @@
+[debug] [2022-12-17T15:20:59.584Z] ----------------------------------------------------------------------
+[debug] [2022-12-17T15:20:59.585Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\scare\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-12-17T15:20:59.585Z] CLI Version:   11.18.0
+[debug] [2022-12-17T15:20:59.586Z] Platform:      win32
+[debug] [2022-12-17T15:20:59.586Z] Node Version:  v18.0.0
+[debug] [2022-12-17T15:20:59.594Z] Time:          Sat Dec 17 2022 16:20:59 GMT+0100 (közép-európai téli idő)
+[debug] [2022-12-17T15:20:59.594Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-17T15:20:59.648Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-17T15:20:59.649Z] > authorizing via signed-in user (scarecrow.dmc@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\scare\OneDrive\Asztali gép\projektmunka v3\NgMassage
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
