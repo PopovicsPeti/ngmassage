@@ -147,8 +147,8 @@ export class ShowClientComponent implements OnInit {
     this.bookingSettingsMode = false;
   }
 
-  onDeletBooking(index: number){
-    this.visitedClient.medRecords.splice(index, 1); 
+  onDeleteBooking(i: number){
+    this.visitedClient.booking.splice(i, 1)
   }
 
   onCancelBooking(){

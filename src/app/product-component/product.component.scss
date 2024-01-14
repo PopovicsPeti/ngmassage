@@ -3,6 +3,7 @@ $text-color: #343557;
 
 .bg{
     text-align: center;
+    padding: 0 1rem;
 }
 
 a{
@@ -21,7 +22,8 @@ a{
         }
 
         img{
-            height: 25vh; 
+            height: 25vh;
+            margin-top: 3rem; 
             cursor: pointer;
             margin-bottom: 1.5rem;              
         }

@@ -36,7 +36,7 @@ export class DbService {
 
     fetchClient(email: string): Observable<Client>{
         return this.http.get<Client>(
-            `https://ngmassage-3365e-default-rtdb.europe-west1.firebasedatabase.app/User/${email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`)
+            `https://ng-massage-4ea7c-default-rtdb.europe-west1.firebasedatabase.app/User/${email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`)
         .pipe(
             catchError( this.errorhendler),
             tap( (client: Client) => {
@@ -89,7 +89,7 @@ export class DbService {
 
     fetchAllClient(){
         return this.http.get<Array<Client>>(
-            `https://ngmassage-3365e-default-rtdb.europe-west1.firebasedatabase.app/User/.json`)
+            `https://ng-massage-4ea7c-default-rtdb.europe-west1.firebasedatabase.app/User.json`)
             .pipe( 
                 map( clients => {
                     let clientsArray: Client[] = [];
@@ -115,7 +115,7 @@ export class DbService {
         let client = this.CS.getClient();
 
         this.http.put<Client>(
-            `https://ngmassage-3365e-default-rtdb.europe-west1.firebasedatabase.app/User/${email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`, client)
+            `https://ng-massage-4ea7c-default-rtdb.europe-west1.firebasedatabase.app/User/${email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`, client)
             .pipe(
                 catchError( error => {
 
@@ -128,7 +128,7 @@ export class DbService {
     storeClientsArray(){
         let clients: Array<Client> = this.CS.getAllClient();
         this.http.put<Client[]>(
-            `https://ngmassage-3365e-default-rtdb.europe-west1.firebasedatabase.app/User.json`, clients)
+            `https://ng-massage-4ea7c-default-rtdb.europe-west1.firebasedatabase.app/User.json`, clients)
             .pipe(
                 catchError( error => {
                     return throwError(error);
@@ -139,7 +139,7 @@ export class DbService {
 
     storeSelectedClient(client: Client){
         this.http.put<Client>(
-            `https://ngmassage-3365e-default-rtdb.europe-west1.firebasedatabase.app/User/${client.email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`, client)
+            `https://ng-massage-4ea7c-default-rtdb.europe-west1.firebasedatabase.app/User/${client.email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`, client)
             .pipe(
                 catchError( error => {
                     return throwError(error);
@@ -149,7 +149,7 @@ export class DbService {
     }
 
     deleteSelectedClient(email: string, index: number){
-        this.http.delete(`https://ngmassage-3365e-default-rtdb.europe-west1.firebasedatabase.app/User/${email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`)
+        this.http.delete(`https://ng-massage-4ea7c-default-rtdb.europe-west1.firebasedatabase.app/User/${email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`)
         .pipe(
             catchError( error => {
                 return throwError(error);
@@ -163,7 +163,7 @@ export class DbService {
       }
 
       deleteClient(email: string){
-        this.http.delete(`https://ngmassage-3365e-default-rtdb.europe-west1.firebasedatabase.app/User/${email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`)
+        this.http.delete(`https://ng-massage-4ea7c-default-rtdb.europe-west1.firebasedatabase.app/User/${email.replace(/[^a-zA-Z0-9 ]/g, '')}.json`)
         .pipe(
             catchError( error => {
                 return throwError(error);
