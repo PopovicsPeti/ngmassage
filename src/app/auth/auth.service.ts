@@ -36,7 +36,7 @@ import { ClientService } from "../user-profil/client.service";
 
     signup(email: string, password: string){
             return this.http.post<AuthResponse>(
-                'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBT7WhvGZrFCZC_4hYKvvsEkWMCJFG2n98', 
+                'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBybL1H5fQiqCFSiOZolv4sk3SfHQ0Yk9o', 
                  {
                     email: email,
                     password: password,
@@ -52,7 +52,7 @@ import { ClientService } from "../user-profil/client.service";
 
     login(email: string, password: string){ 
         return this.http.post<AuthResponse>(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBT7WhvGZrFCZC_4hYKvvsEkWMCJFG2n98',
+            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBybL1H5fQiqCFSiOZolv4sk3SfHQ0Yk9o',
             {
                 email: email,
                 password: password,
@@ -170,7 +170,7 @@ import { ClientService } from "../user-profil/client.service";
 
         deleteUserAuth(){
             this.http.post<any>(
-            'https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyBT7WhvGZrFCZC_4hYKvvsEkWMCJFG2n98', 
+            'https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyBybL1H5fQiqCFSiOZolv4sk3SfHQ0Yk9o', 
             {
                 idToken: this.toDelete
             }
